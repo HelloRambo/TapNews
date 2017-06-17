@@ -38,12 +38,10 @@ redis_client = redis.StrictRedis(REDIS_HOST, REDIS_PORT)
 cloudAMQP_client = CloudAMQPClient(SCRAPE_NEWS_TASK_QUEUE_URL, SCRAPE_NEWS_TASK_QUEUE_NAME)
 
 while True:
-    print 'start'
     news_list = news_api_client.getNewsFromSource(NEWS_SOURCES)
     num_of_new_news = 0
 
     for news in news_list:
-        print '1'
         news_digest = hashlib.md5(news['title'].encode('utf-8')).digest().encode('base64')
 
         if redis_client.get(news_digest) is None:
