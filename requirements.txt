@@ -1,4 +1,7 @@
 python-jsonrpc
 pymongo
 pika
+redis
 requests
+newspaper
+sklearn
