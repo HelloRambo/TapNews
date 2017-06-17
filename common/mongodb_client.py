@@ -9,6 +9,7 @@ DB_NAME = 'tap-news'
 client = MongoClient("%s:%d" % (MONGO_DB_HOST, MONGO_DB_PORT))
 
 def get_db(db=DB_NAME):
+    print db
     db = client[db]
     return db
 
